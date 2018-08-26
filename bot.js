@@ -33,7 +33,6 @@ if(message.content === 'عدد') {
 }
 });
 
-```
 client.on('message', message => {
     var args = message.content.split(/[ ]+/)
     if(message.content.includes('كسمك + كسم + زب + كس')){
@@ -50,4 +49,5 @@ client.on('message', message => {
 
      
 }); 
+
 client.login(process.env.BOT_TOKEN);
