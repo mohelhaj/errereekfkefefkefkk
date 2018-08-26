@@ -51,7 +51,7 @@ client.on('message', message => {
 }); 
 
 client.on('message', message => {
-    if (message.content.startsWith("دعواتك")) {
+    if (message.content.startsWith("inv")) {
 
     message.guild.fetchInvites()
     .then(invites => message.channel.send(`**:busts_in_silhouette:  اتيت ب     [${invites.find(invite => invite.inviter.id === message.author.id)}]    :calling:   عضو لهذا السيرفر    `))
@@ -78,5 +78,17 @@ client.on('message', function(msg) {
       msg.channel.send({embed:embed});
     }
   });
+
+client.on('message', message => {
+  if (!message.content.startsWith(prefix)) return;
+  const verifed = ["462437279487754240"];
+if (message.content.startsWith(prefix + 'ownerbot')) {
+    if(!message.channel.guild) return;
+if( verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage("**انت صاحب البوت **")
+} else {
+   message.reply("**انت لسا صاحب البوت**");   
+}
+}
+});
 
 client.login(process.env.BOT_TOKEN);
