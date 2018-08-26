@@ -35,7 +35,7 @@ if(message.content === 'عدد') {
 
 client.on('message', message => {
     var args = message.content.split(/[ ]+/)
-    if(message.content.includes('كسمك + كسم + زب + كس')){
+    if(message.content.includes('كسمك')){
         message.delete()
       message.channel.sendMessage("", {embed: {
         title: "لا تسب",
