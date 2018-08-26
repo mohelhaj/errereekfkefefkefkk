@@ -33,77 +33,14 @@ if(message.content === 'عدد') {
 }
 });
 
-client.on("message", message => {
-        let args = message.content.split(" ").slice(1);
-      if (message.content.startsWith(prefix + 'report')) {
-            let user = message.mentions.users.first();
-            let reason = args.slice(1).join(' ');
-            let modlog = client.channels.find('name', 'report');
-            if (!reason) return message.reply('**ضع سبباً مقنعاً**');
-              if (message.mentions.users.size < 1) return message.reply('**يجب عليك منشن للعضو المراد الابلاغ عليه**').catch(console.error);
-       
-        if (!modlog) return message.reply('**لا يوجد روم بأسم report**');
-        const embed = new Discord.RichEmbed()
-          .setColor(0x00AE86)
-          .setTimestamp()
-          .addField('نوع الرسالة:', 'Report')
-          .addField('المراد الابلاغ عليه:', `${user.username}#${user.discriminator} (${user.id}`)
-          .addField('صاحب الابلاغ:', `${message.author.username}#${message.author.discriminator}`)
-          .addField('السبب', reason);
-          message.delete()
-          return client.channels.get(modlog.id).sendEmbed(embed).catch(console.error);
-          console.log('[report] Send By: ' + message.author.username)
-      }
-      });
-
-```
-client.on('message', message => {
-    if (message.author.bot) return;
-     if (message.content === prefix + "help-admin") {
-         if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply(`
-         
-         **لست من المشرفين لن يتم ارسال الرسالة إليك**
-         
-         
-         `);
-         message.channel.send('**لقد تم ارسال رسالة المساعدة في الرسائل الخاصة**');
-            
-    
-         
-
-
- message.author.sendMessage(`
- **
-
-╔[❖══════════════════════❖]╗
-       اوامر المشرفين
-╚[❖══════════════════════❖]╝
-
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- ❖ $kick <mention > ➾ لطرد الأعضاء
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- ❖ $clear ➾ لمسح الشات
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
- ❖ $mute < mention > ➾ لإعطاء ميوت للإعضاء
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- ❖ $unmute <mention> ➾ لفك الميوت عن الأعضاء
- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
- ❖ $bc <message> ➾ لإرسال رسالة جماعية
- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- ❖ $closeroms <message> ➾ لإغلاق الشات
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
- ❖ $openroms <message> ➾ لفتح الشات
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- ❖ $server <message> ➾ لمعرفة نبذه عن السيرفر
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- ❖ $warn <message> ➾ لإعطاء انذار لأحد الأعضاء
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- ❖ $clear <message> ➾ لمسح الشات
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-`);
-
-    }
+client.on('ready', function(){
+  require("./antispam.js")(client, function(message){
+     message.delete().then(yumz => {
+     message.channel.send(`stop spamming kid <@${message.author.id}>`).then(spammer => {
+     spammer.delete(2000)
+   });
+   });
+  });
 });
 
 client.login(process.env.BOT_TOKEN);
