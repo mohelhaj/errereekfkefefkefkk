@@ -79,18 +79,24 @@ client.on("guildMemberAdd", member => {
 }).catch(console.error)
 })
   
-client.on('guildMemberAdd', member => {
-    const botCount = member.guild.members.filter(m=>m.user.bot).size
-    const memberCount = [member.guild.memberCount] - [botCount]
-    client.channels.get('483337250948644877').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
-    client.channels.get('483336821808431105').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
-});
-
-client.on('guildMemberRemove', member => {
-    const botCount = member.guild.members.filter(m=>m.user.bot).size
-    const memberCount = [member.guild.memberCount] - [botCount]
-    client.channels.get('483337250948644877').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
-    client.channels.get('483336821808431105').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
-});
-
+client.on("message", message => { //clear
+              var args = message.content.substring(prefix.length).split("!");
+              if (message.content.startsWith(prefix + "clear")) {
+                  if(!message.channel.guild) return message.reply('**❌ اسف لكن هذا الامر للسيرفرات فقط **');         
+     if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**⚠  لا يوجد لديك صلاحية لمسح الشات**');
+          var msg;
+          msg = parseInt();
+        
+        message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+        message.channel.sendMessage("", {embed: {
+          title: "``تــم مسح الشات ``",
+          color: 0x5016f3, 
+          footer: {
+            
+          }
+        }}).then(msg => {msg.delete(3000)});
+                            }
+  
+       
+  });
 client.login(process.env.BOT_TOKEN);
