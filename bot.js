@@ -71,13 +71,6 @@ client.on('message', function(msg) {
     }
   });
 
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`:rose:  ولكم نورت السيرفر:rose: 
-:crown:اسم العضو  ${member}:crown:  
-انت العضو رقم ${member.guild.memberCount} `) 
-}).catch(console.error)
-})
   
 client.on("message", message => { //clear
               var args = message.content.substring(prefix.length).split(" ");
@@ -99,4 +92,5 @@ client.on("message", message => { //clear
   
        
   });
+
 client.login(process.env.BOT_TOKEN);
