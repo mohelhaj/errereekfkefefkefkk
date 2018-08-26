@@ -80,11 +80,11 @@ client.on("guildMemberAdd", member => {
 })
   
 client.on('message', msg => { 
-    if (msg.content.startsWith(`$تحذير`)) {
+    if (msg.content.startsWith(`$warn`)) {
       if(!msg.member.hasPermission("MANAGE_MESSAGES")) return;
        let args = msg.content.split(" ").slice(1);
       if (!msg.mentions.members.first()) return msg.reply('منشن الشخص المحدد')
-      if (!args[0]) return msg.reply('اكتب السبب')
+      if (!args[0]) return msg.reply('الشات الغلط')
       //غير اسم الروم او سوي روم بذا الاسم 
       if (msg.guild.channels.find('الشات_العام', 'warns')) {
         //اذا غيرت فوق غير هنا كمان 
