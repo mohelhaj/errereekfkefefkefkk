@@ -296,7 +296,6 @@ client.on("message", async message => {
                      nul+=invite.uses
                     }
                 });
-            });
           if (nul > 0) {
               console.log(`\n${message.author.tag} has ${nul} invites in ${guild.name}\n`)
               var embed = new Discord.RichEmbed()
