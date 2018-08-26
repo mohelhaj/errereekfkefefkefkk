@@ -140,6 +140,6 @@ client.on('message', message => {
     .setFooter(`Morro Bot`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')                                 
     .setThumbnail(heg.avatarURL);
     message.channel.send(id)
-}       });
-
+     }      
+ });
 client.login(process.env.BOT_TOKEN);
