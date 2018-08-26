@@ -27,5 +27,10 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
 });
+client.on('message' , message => {
+if(message.content === 'عدد') {
+    message.channel.send(`**عدد الاشخاص الموجودين بـ  الرومات الصوتيه : ${message.guild.members.filter(g => g.voiceChannel).size}**`);
+}
+});
 
 client.login(process.env.BOT_TOKEN);
