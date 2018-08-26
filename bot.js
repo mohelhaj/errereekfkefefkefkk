@@ -35,14 +35,14 @@ if(message.content === 'عدد') {
 
 client.on('message', message => {
     var args = message.content.split(/[ ]+/)
-    if(message.content.includes('كسمك')){
+    if(message.content.includes('كسمك''كسم''زب''كس امك''حمار''كلب')){
         message.delete()
       message.channel.sendMessage("", {embed: {
         title: "لا تسب",
         color: 0x06DF00,
         description: "مَّا يَلْفِظُ مِن قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ ",
         footer: {
-          text: "By Abo Khalil"
+          text: "By Mr.LOVE"
         }
       }}).then(msg => {msg.delete(4000)});
                           }
