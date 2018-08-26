@@ -79,22 +79,18 @@ client.on("guildMemberAdd", member => {
 }).catch(console.error)
 })
   
-client.on('message', msg => { 
-    if (msg.content.startsWith(`$warn`)) {
-      if(!msg.member.hasPermission("MANAGE_MESSAGES")) return;
-       let args = msg.content.split(" ").slice(1);
-      if (!msg.mentions.members.first()) return msg.reply('منشن الشخص المحدد')
-      if (!args[0]) return msg.reply('الشات الغلط')
-      //غير اسم الروم او سوي روم بذا الاسم 
-      if (msg.guild.channels.find('الشات_العام', 'warns')) {
-        //اذا غيرت فوق غير هنا كمان 
-        msg.guild.channels.find('شات_العاب', 'warns').send(`
-      تم اعطائك انذار : ${msg.mentions.members.first()}
-      لأنك قمت بما يلي
-      ${args.join(" ").split(msg.mentions.members.first()).slice(' ')}
-      `)
-      }
-    }
-})
+client.on('guildMemberAdd', member => {
+    const botCount = member.guild.members.filter(m=>m.user.bot).size
+    const memberCount = [member.guild.memberCount] - [botCount]
+    client.channels.get('483337250948644877').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
+    client.channels.get('483336821808431105').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
+});
+
+client.on('guildMemberRemove', member => {
+    const botCount = member.guild.members.filter(m=>m.user.bot).size
+    const memberCount = [member.guild.memberCount] - [botCount]
+    client.channels.get('483337250948644877').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
+    client.channels.get('483336821808431105').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
+});
 
 client.login(process.env.BOT_TOKEN);
