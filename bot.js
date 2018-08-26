@@ -33,14 +33,21 @@ if(message.content === 'عدد') {
 }
 });
 
-client.on('ready', function(){
-  require("./antispam.js")(client, function(message){
-     message.delete().then(yumz => {
-     message.channel.send(`stop spamming kid <@${message.author.id}>`).then(spammer => {
-     spammer.delete(2000)
-   });
-   });
-  });
-});
+```
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('كسمك + كسم + زب + كس')){
+        message.delete()
+      message.channel.sendMessage("", {embed: {
+        title: "لا تسب",
+        color: 0x06DF00,
+        description: "مَّا يَلْفِظُ مِن قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ ",
+        footer: {
+          text: "By Abo Khalil"
+        }
+      }}).then(msg => {msg.delete(4000)});
+                          }
 
+     
+}); 
 client.login(process.env.BOT_TOKEN);
