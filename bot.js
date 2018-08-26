@@ -83,4 +83,16 @@ var prefix = "!";
  }
 });  
 
+client.on('message', message => {
+var prefix = "!";
+      if(message.content === prefix + "schannel") {
+      if(!message.channel.guild) return;
+      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('❌');
+             message.channel.overwritePermissions(message.guild.id, {
+             READ_MESSAGES: true
+ })
+              message.channel.send('Done  ')
+ }
+});
+
 client.login(process.env.BOT_TOKEN);
