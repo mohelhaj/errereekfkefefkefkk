@@ -184,6 +184,6 @@ var prefix = "-";
       .addBlankField(true)
       .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
       message.channel.send(SaifDz);
-    });
+});
   
 client.login(process.env.BOT_TOKEN);
