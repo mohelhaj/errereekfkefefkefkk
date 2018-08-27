@@ -499,5 +499,36 @@ client.on('guildMemberAdd', member => {
         channel.send({embed : embed});
         })
 
+client.on('message' , message => {
+if (message.content === '-owner') {
+         let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)    
+      .addField("**تم تطوير وبرمجة البوت من قبل Mr.LOVE**")
+.setColor('#B101FC')
+  message.author.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+    if(!message.channel.guild) return;
+if (message.content.startsWith('-ping')) {
+if(!message.channel.guild) return;
+var msg = `${Date.now() - message.createdTimestamp}`
+var api = `${Math.round(client.ping)}`
+if (message.author.bot) return;
+let embed = new Discord.RichEmbed()
+.setAuthor(message.author.username,message.author.avatarURL)
+.setColor('RANDOM')
+.addField('**Time Taken:**',msg + " ms 📶 ")
+.addField('**WebSocket:**',api + " ms 📶 ")
+message.channel.send({embed:embed});
+}
+});
+
+console.log('Loading....Please Stand by.....');
+client.on('ready', () => {
+  console.log(`Bot Is online now !!`);
+});
+
 client.login(process.env.BOT_TOKEN);
 
