@@ -451,35 +451,35 @@ client.on('message', msg => {
   if(msg.content === 'ادمن')
               setTimeout(function() {  
 msg.reply('تفضل أخي ,, سيتم الرد عليك ')
-              }, 10000)
+              }, 1)
 });
 
 client.on('message', msg => {
   if(msg.content === 'السلام عليكم')
               setTimeout(function() {  
 msg.reply('وعليكم السلام')
-              }, 10000)
+              }, 1)
 });
 
 client.on('message', msg => {
   if(msg.content === 'باك')
               setTimeout(function() {  
 msg.reply('ولكم ,,, نورت')
-              }, 10000)
+              }, 1)
 });
 
 client.on('message', msg => {
   if(msg.content === 'افك')
               setTimeout(function() {  
 msg.reply('تيت')
-              }, 10000)
+              }, 1)
 });
 
 client.on('message', msg => {
   if(msg.content === 'برب')
               setTimeout(function() {  
 msg.reply('تيت')
-              }, 10000)
+              }, 1)
 });
 
 client.on('guildMemberAdd', member => {
