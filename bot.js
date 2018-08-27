@@ -412,14 +412,6 @@ client.on('message', message => {
          }
  });
 
-const client = new Discord.Client()
-client.on("ready", () => {
-let channel =     client.channels.get("483072266259922946")
-setInterval(function() {
-channel.send(`**!اذكار**`);
-}, 7200000)
-})
-
 client.on('message', message => {
 if (message.content.startsWith('*inv-info')) {
 let oi = message.mentions.users.first() ? message.mentions.users.first().id : message.author.id ; 
