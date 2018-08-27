@@ -4,7 +4,7 @@ const prefix = '.'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`playing`,"3K By Mr.LOVE")
+client.user.setGame(`Watching`,"Manager")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -301,6 +301,13 @@ if (message.content.startsWith("-cv")) {
     message.channel.sendMessage('تـم إنـشاء روم صـوتي')
     
 }
+});
+
+client.on('message', msg => {
+  if(msg.content === 'هلا')
+              setTimeout(function() {  
+msg.reply('هلا فيك')
+              }, 10000)
 });
 
 client.login(process.env.BOT_TOKEN);
