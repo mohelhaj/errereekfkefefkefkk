@@ -345,7 +345,7 @@ client.on('message', message => {
  });
 
 client.on("voiceStateUpdate", (old, new1) => {
-    var channel = "483072266259922946";
+    var channel = "483720394038050816";
     var role = "var role"
     لول(old,new1,channel,role);
 });
