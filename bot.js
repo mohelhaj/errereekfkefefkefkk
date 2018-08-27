@@ -347,7 +347,7 @@ client.on('message', message => {
 
 client.on('message', message => {
     if(!message.channel.guild) return;
-if (message.content.startsWith('-ping')) {
+if (message.content.startsWith('$ping')) {
 if(!message.channel.guild) return;
 var msg = `${Date.now() - message.createdTimestamp}`
 var api = `${Math.round(client.ping)}`
