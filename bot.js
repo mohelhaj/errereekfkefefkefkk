@@ -43,7 +43,7 @@ client.on('message', message => {
         color: 0x06DF00,
         description: "مَّا يَلْفِظُ مِن قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ ",
         footer: {
-          text: "By Mr.LOVE"
+          text: "By Mr.LOVE And Hady Khaled"
         }
       }}).then(msg => {msg.delete(4000)});
                           }
