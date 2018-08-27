@@ -412,4 +412,33 @@ client.on('message', message => {
          }
  });
 
+const Discord = require("discord.js")
+const client = new Discord.Client()
+client.on("ready", () => {
+let channel =     client.channels.get("483072266259922946")
+setInterval(function() {
+channel.send(`**اللهم إني أسألك إيماناً لا يرتد، ونعيماً لا ينفذ، ومرافقة محمد صلى الله عليه وسلم في أعلى جنة الخلد رواه ابن حبان ورواه أحمد عن طريق والنسائي في عمل اليوم والليلة.
+**`);
+}, 1000)
+})
+
+const Discord = require("discord.js")
+const client = new Discord.Client()
+client.on("ready", () => {
+let channel =     client.channels.get("483072266259922946")
+setInterval(function() {
+channel.send(`**اللهم أعنا على ذكرك، وشكرك، وحسن عبادتك رواه ا لحاكم وصححه ووافقه الذهبي وهو كما قالا وهو عند أبي داود والنسائي أن النبي صلى الله عليه وسلم أوصى معاذاً أن يقولها في دبر كل صلاة.
+**`);
+}, 1200)
+})
+
+const Discord = require("discord.js")
+const client = new Discord.Client()
+client.on("ready", () => {
+let channel =     client.channels.get("483072266259922946")
+setInterval(function() {
+channel.send(`**اللهم قنعني بما رزقتني، وبارك لي فيه، واخلف عليّ كل غائبة لي بخير رواه الحاكم وصححه ووافقه الذهبي.
+**`);
+}, 1400)
+})
 client.login(process.env.BOT_TOKEN);
