@@ -329,4 +329,36 @@ client.on("message", msg => {
   }
 });
 
+client.on('message', message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "say") {
+   message.channel.sendMessage(args.join("  "))
+   message.delete()
+  }
+ });
+
+client.on("voiceStateUpdate", (old, new1) => {
+    var channel = "483072266259922946";
+    var role = "var role"
+    لول(old,new1,channel,role);
+});
+
+function لول(o,n,channel,role){
+    if (!o.voiceChannel && n.voiceChannel) {
+        if (n.voiceChannelID == channel) {
+            n.addRole(n.guild.roles.find("name", role));
+        };
+    } else if (o.voiceChannel && !n.voiceChannel) {
+        if (o.voiceChannelID == channel) {
+            n.removeRole(n.guild.roles.find("name", role))
+        }
+    }
+}
 client.login(process.env.BOT_TOKEN);
