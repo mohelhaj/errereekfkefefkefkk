@@ -331,33 +331,13 @@ client.on("message", msg => {
 
 client.on('message', message => { 
     var p = "*"
-        if (message.content.startsWith(p + `alpha`)) {
-message.guild.setName(`.M`)
+        if (message.content.startsWith(p + `3K`)) {
+message.guild.setName(`.3`)
 .then(msg => {
  setInterval(() => {
-message.guild.setName(`.r`)
+message.guild.setName(`.3K`)
 .then(msg => {
  setInterval(() => {
-message.guild.setName(`.L`) 
-.then(msg => {
- setInterval(() => {
-message.guild.setName(`.LO`)
-.then(msg => {
- setInterval(() => {
-message.guild.setName(`.LOV`)
-.then(msg => {
- setInterval(() => {
-message.guild.setName(`.LOVE `)
-.then(msg => {
- setInterval(() => {
-}, 11000);
-});
-},  10000);
-});
-},  8000);
-});
-},  6000);
-});
 },  4000);
 });
 },  1000);
@@ -518,56 +498,6 @@ client.on('guildMemberAdd', member => {
         if (!channel) return;
         channel.send({embed : embed});
         })
-
-client.on('message', message => {
-    if (message.author.bot) return;
-     if (message.content === prefix + "help-admin") {
-         if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply(`
-         
-         **لست من المشرفين لن يتم ارسال الرسالة إليك**
-         
-         
-         `);
-         message.channel.send('**لقد تم ارسال رسالة المساعدة في الرسائل الخاصة**');
-            
-    
-         
-
-
- message.author.sendMessage(`
- **
-
-╔[❖══════════════════════❖]╗
-       اوامر المشرفين
-╚[❖══════════════════════❖]╝
-
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- ❖ $kick <mention > ➾ لطرد الأعضاء
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- ❖ $clear ➾ لمسح الشات
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
- ❖ $mute < mention > ➾ لإعطاء ميوت للإعضاء
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- ❖ $unmute <mention> ➾ لفك الميوت عن الأعضاء
- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
- ❖ $bc <message> ➾ لإرسال رسالة جماعية
- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- ❖ $closeroms <message> ➾ لإغلاق الشات
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= 
- ❖ $openroms <message> ➾ لفتح الشات
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- ❖ $server <message> ➾ لمعرفة نبذه عن السيرفر
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- ❖ $warn <message> ➾ لإعطاء انذار لأحد الأعضاء
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- ❖ $clear <message> ➾ لمسح الشات
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-By Mr.LOVE
-`);
-
-    }
-});
 
 client.login(process.env.BOT_TOKEN);
 
