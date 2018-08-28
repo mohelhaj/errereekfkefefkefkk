@@ -347,8 +347,6 @@ message.guild.setName(`.3K`)
  
 }
 
-});
-
 client.on ("guildMemberAdd", member => {
 
    var role = member.guild.roles.find ("12", "12");
@@ -360,36 +358,6 @@ client.on ("guildMemberRemove", member => {
 
 })
 
-client.on('message', message => {
-    if (message.content.startsWith("!تهكير")) {
-      if (message.author.bot) return
-           message.delete();
-             let args = message.content.split(' ').slice(1);
-                   let virusname = args.join(' ');
-                 if (virusname < 1) {
-                     return message.channel.send("``اكتب اسم الشخص الي تبي يتهكر``");
-                                     }
-                 message.channel.send({embed: new Discord.RichEmbed().setTitle('Loading ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
-             setTimeout(function() {
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓ ] 1%').setColor(0xFF0000)})
-             }, 1000)
-            setTimeout(function() {
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓] 25%').setColor(0xFF0000)})
-             }, 2000)
-           setTimeout(function() {     
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 100%').setColor(0xFF0000)})
-             }, 3000)
-                setTimeout(function() {
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 1...').setColor(0xFF0000)})
-             }, 4000)
-              setTimeout(function() {
-               m.delete()
-           }, 5000)
-             setTimeout(function() {
-               message.channel.send('تم تهكيرك')
-           }, 6000)
-           });
-         }
  });
 
 client.on('message', message => {
@@ -462,43 +430,6 @@ msg.reply('تيت')
               }, 1)
 });
 
-client.on('guildMemberAdd', member => {
-        let channel = member.guild.channels.find('general', 'اسم الروم الي بيرحب فيه');
-        let memberavatar = member.user.avatarURL
-          if (!channel) return;
-        let embed = new Discord.RichEmbed()
-            .setColor('RANDOM')
-            .setThumbnail(memberavatar)
-            .addField('🎽 | name :  ',`${member}`)
-            .addField('📢 | نورت السيرفر يا قلبي' , `Welcome to the server, ${member}`)
-            .addField('🆔 | user :', "**[" + `${member.id}` + "]**" )
-                    .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
-                   
-                      .addField("Name:",`<@` + `${member.id}` + `>`, true)
-                         
-                                         .addField(' الـسيرفر', `${member.guild.name}`,true)
-                                           
-         .setFooter(`${member.guild.name}`)
-            .setTimestamp()
-       
-          channel.sendEmbed(embed);
-        });
-        
-        client.on('guildMemberRemove', member => {
-            var embed = new Discord.RichEmbed()
-            .setAuthor(member.user.username, member.user.avatarURL)
-            .setThumbnail(member.user.avatarURL)
-            .setTitle(`الله معاك ✋:skin-tone-1: 😔`)
-            .setDescription(`مع السلامه تشرفنا بك ✋:skin-tone-1: 😔 `)
-            .addField('👤   تبقي',`**[ ${member.guild.memberCount} ]**`,true)
-            .setColor('RED')
-            .setFooter(`==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====`, 'https://cdn.discordapp.com/attachments/397818254439219217/399292026782351381/shy.png')
-        
-        var channel =member.guild.channels.find('كفؤؤؤ', 'اسم الروم الي يقول فيه اذا حد غادر')
-        if (!channel) return;
-        channel.send({embed : embed});
-        })
-
 client.on('message' , message => {
 if (message.content === '-owner') {
          let embed = new Discord.RichEmbed()
@@ -523,11 +454,6 @@ let embed = new Discord.RichEmbed()
 .addField('**WebSocket:**',api + " ms 📶 ")
 message.channel.send({embed:embed});
 }
-});
-
-console.log('Loading....Please Stand by.....');
-client.on('ready', () => {
-  console.log(`Bot Is online now !!`);
 });
 
 client.on('message' , message => {
