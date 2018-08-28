@@ -588,7 +588,7 @@ return;
         message.guild.members.forEach(m => {
    if(!message.member.hasPermission('ADMINISTRATOR')) return;
             var bc = new Discord.RichEmbed()
-            .addField('» Server :', ${message.guild.name})
+            .addField('» Server :', {message.guild.name})
             .addField('» Sender : ', ${message.author.username}#${message.author.discriminator})
             .addField(' » Message : ', args)
             .setColor('#ff0000')
