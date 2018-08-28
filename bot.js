@@ -423,7 +423,7 @@ message.channel.send(alpha);
   });
 
 client.on('ready', () => {
-     client.user.setActivity("3K Server",{type: 'WATCHING'});
+     client.user.setActivity("3K Server",{type: 'Streaming'});
 
 });
 
