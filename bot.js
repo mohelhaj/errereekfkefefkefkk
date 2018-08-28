@@ -574,16 +574,6 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if(message.content.includes('discord.gg')){
-                                            if(!message.channel.guild) return message.reply('** advertising me on DM ? 🤔   **');
-        if (!message.member.hasPermissions(['ADMINISTRATOR'])){
-        message.delete()
-    return message.reply(`** No Invite Links :angry: !**`)
-    }
-}
-});
-
-client.on('message', message => {
 var prefix = "*";
 
     if (message.author.id === client.user.id) return;
