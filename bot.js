@@ -573,33 +573,6 @@ client.on('message', message => {
 }
 });
 
-client.on('message', message => {
-var prefix = "*";
-
-    if (message.author.id === client.user.id) return;
-    if (message.guild) {
-   let embed = new Discord.RichEmbed()
-    let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.split(' ')[0] == prefix + 'bc') {
-    if (!args[1]) {
-message.channel.send("bc <message>");
-return;
-}
-        message.guild.members.forEach(m => {
-   if(!message.member.hasPermission('ADMINISTRATOR')) return;
-            var bc = new Discord.RichEmbed()
-            .addField('» Server :', {message.guild.name})
-            .addField('» Sender : ', ${message.author.username}#${message.author.discriminator})
-            .addField(' » Message : ', args)
-            .setColor('#ff0000')
-            m.send(${m},{embed: bc});
-        });
-    }
-    } else {
-        return;
-    }
-});
-
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const prefix = '-';
