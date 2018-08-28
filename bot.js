@@ -609,7 +609,7 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 });
 
 client.on('message', ra3d => {
-var prefix = "-";
+var prefix = "$";
                         let args = ra3d.content.split(" ").slice(1).join(" ")
 if(ra3d.content.startsWith(prefix + 'cc')) {
     if(!args) return ra3d.channel.send('يرجا عليك كتابه رقم الالوان');
