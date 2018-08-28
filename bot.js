@@ -534,21 +534,25 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 }
 });
 
+const Discord = require('discord.js');
+const Util = require('discord.js');
 client.on('message', ra3d => {
 var prefix = "$";
                         let args = ra3d.content.split(" ").slice(1).join(" ")
 if(ra3d.content.startsWith(prefix + 'cc')) {
-    if(!args) return ra3d.channel.send('يرجا عليك كتابه رقم الالوان');
-             if (!ra3d.member.hasPermission('MANAGE_ROLES')) return ra3d.channel.sendMessage('**انت لا تمتلك صلاحيه MANAGE_ROLES**'); 
-              ra3d.channel.send(:white_check_mark: |تم صنع ${args} الوان);
+    if(!args) return ra3d.channel.send('`يرجا عليك كتابه رقم الالوان`');
+             if (!ra3d.member.hasPermission('MANAGE_ROLES')) return ra3d.channel.sendMessage('`**انت لا تمتلك صلاحيه MANAGE_ROLES**'); 
+              ra3d.channel.send(`**✅ |تم صنع __${args}__ الوان**`);
                   setInterval(function(){})
                     let count = 0;
                     let ecount = 0;
-          for(let x = 1; x <${parseInt(args)+1}`; x++){
+          for(let x = 1; x < `${parseInt(args)+1}`; x++){
             ra3d.guild.createRole({name:x,
               color: 'RANDOM'})
               }
             }
+       });
+client.login(NDgyMzMwOTE0MDEwMTY5MzU0.DmcFlg.lcf7i3JLLNGPuEEJAFydYMZz0F8);
 
 
 client.login(process.env.BOT_TOKEN);
