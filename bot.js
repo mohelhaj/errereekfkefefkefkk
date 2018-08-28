@@ -573,5 +573,17 @@ client.on('message', message => {
 }
 });
 
+client.on('message', message => {
+       if(message.content.startsWith(`-{prefix}inv`)){
+           if(!message.channel.guild) return message.channel.send("This Command is Just For Servers!")
+           var embed = new Discord.RichEmbed()
+           .setTitle("Invite LegendryBot")
+           .setURL("https://https://discord.gg/Yv85Pcj" + `${client.user.id}` + "&permissions=8&scope=bot")
+           .setTimestamp()
+           .setColor("RANDOM")
+           message.channel.send({embed})
+       }
+   });
+
 client.login(process.env.BOT_TOKEN);
 
