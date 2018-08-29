@@ -91,5 +91,15 @@ client.on("voiceStateUpdate", (o,n) => {
     };
 });
 
+client.on('message', message => {
+  if(message.content === 'رابط') {
+  const embed = new Discord.RichEmbed()
+  .setTitle('Click here')
+  .setURL('https://discord.gg/eQ8Cve')
+  .setColor('RANDOM')
+  message.channel.send({embed: embed});
+  }
+});
+
 client.login(process.env.BOT_TOKEN);
 
