@@ -129,5 +129,61 @@ var prefix = "!";
        
 });
 
+client.on('message', message => {
+    var prefix = "!";
+if(!message.channel.guild) return;
+if(message.content.startsWith(prefix + 'move')) {
+ if (message.member.hasPermission("MOVE_MEMBERS")) {
+ if (message.mentions.users.size === 0) {
+ return message.channel.send("``لاستخدام الأمر اكتب هذه الأمر : " +prefix+ "move [USER]``")
+}
+if (message.member.voiceChannel != null) {
+ if (message.mentions.members.first().voiceChannel != null) {
+ var authorchannel = message.member.voiceChannelID;
+ var usermentioned = message.mentions.members.first().id;
+var embed = new Discord.RichEmbed()
+ .setTitle("Succes!")
+ .setColor("#000000")
+ .setDescription(`لقد قمت بسحب <@${usermentioned}> الى الروم الصوتي الخاص بك✅ `)
+var embed = new Discord.RichEmbed()
+.setTitle(`You are Moved in ${message.guild.name}`)
+ .setColor("RANDOM")
+.setDescription(`**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`)
+ message.guild.members.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
+message.guild.members.get(usermentioned).send(embed)
+} else {
+message.channel.send("``لا تستطيع سحب "+ message.mentions.members.first() +" `يجب ان يكون هذه العضو في روم صوتي`")
+}
+} else {
+ message.channel.send("**``يجب ان تكون في روم صوتي لكي تقوم بسحب العضو أليك``**")
+}
+} else {
+message.react("❌")
+ }}});
+let message_handler = {};
+    let tolerancia = [4, 3500]; //4 messages in less than 1200ms = spam
+    module.exports = function(bot, callback){
+      bot.on('message', message => {
+        if(message.author.bot) return;
+        if(!message_handler.hasOwnProperty(message.author.id)){
+          message_handler[message.author.id] = {};
+          message_handler[message.author.id].ultimamessageTS = message.createdTimestamp;
+          message_handler[message.author.id].primeiramessageTS = message.createdTimestamp;
+          message_handler[message.author.id].messageTracker = 0;
+        }
+        var mh = message_handler[message.author.id];
+        mh.messageTracker++;
+        mh.ultimamessageTS = message.createdTimestamp;
+        if(mh.messageTracker >= tolerancia[0] && mh.ultimamessageTS <= (mh.primeiramessageTS + tolerancia[1])){
+            callback(message);
+        } else {
+          setTimeout(function(){
+            delete message_handler[message.author.id];
+            delete mh;
+          }, tolerancia[1]);
+        }
+      });
+    }
+    
 client.login(process.env.BOT_TOKEN);
 
