@@ -41,7 +41,7 @@ client.on('message', message => {
 var temp = {
 
 };
-var prefix = "!";
+
 client.on("message",(message) => {
     if (message.channel.type !== "text") return;
     if (!message.content.startsWith(prefix)) return;
