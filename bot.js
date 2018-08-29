@@ -38,5 +38,19 @@ client.on('message', message => {
 }
 });
 
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(***اهلا و سهلا***
+انت العضو رقم ${member.guild.memberCount}) 
+}).catch(console.error)
+})
+--
+client.on("guildMemberRemove", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(***وداعا لا تنسى تسكر الباب ورائك***
+تبقى ${member.guild.memberCount}) 
+}).catch(console.error)
+})
+
 client.login(process.env.BOT_TOKEN);
 
