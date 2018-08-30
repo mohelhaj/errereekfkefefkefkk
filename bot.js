@@ -108,9 +108,9 @@ client.on('message', message => {
               const Embed11 = new Discord.RichEmbed()
         .setColor("RANDOM")
                 .setAuthor(message.guild.name, message.guild.iconURL)
-        .setDescription(https://discord.gg/QEvgjvJ
+        .setDescription(حياك الله انشره
 
--${message.guild.name}  Link
+-${message.guild.name}  https://discord.gg/QEvgjvJ
 **)
       message.author.sendEmbed(Embed11)
     }
