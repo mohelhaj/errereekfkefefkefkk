@@ -232,8 +232,8 @@ client.on('message', message => {
     )
   message.channel.send("تم ارسال الرابط برسالة خاصة")
 
-message.author.send(**مدة الرابط : يـوم
-عدد استخدامات الرابط : 2**)
+message.author.send("مدة الرابط : يـوم
+عدد استخدامات الرابط : 2")
 
 
     }
