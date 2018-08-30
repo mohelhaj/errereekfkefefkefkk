@@ -220,24 +220,47 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 }
 });
 
-client.on('message', message => {
-    if (message.content.startsWith("-رابط")) {
+client.on('message' , async (message) => {
+var prefix = "-"
+    if(message.content.startsWith(prefix + "inv")) {
+if(message.author.bot) return;
+if(!message.channel.guild) return message.reply(' Error : ` Guild Command `');
+  var invites = await message.guild.fetchInvites();
+    invites = invites.array();
+    arraySort(invites, 'uses', { reverse: true });
+    let possibleInvites = ['User Invited |  Uses '];
+    invites.forEach(i => {
+        if (i.uses === 0) { 
+            return;
+        }
+      possibleInvites.push(['\n\ ' +'<@'+ i.inviter.id +'>' + '  :  ' +   i.uses]);
+      if (i.uses === 10) {//يمديك تعدل رقم وصول العدد حق الانفايت الى اأقل أو أكثر
+          message.member.addRole(message.member.guild.roles.find("Member",""))//هنآ أسم ألرتبه اللي تجيهه
+.catch(RebeL =>{
+console.log('Error: ' + RebeL);
+});
+}
+if (i.uses === 20) {
+message.member.addRole(message.member.guild.roles.find("name",""))
+.catch(RebeL =>{
+console.log('Error: ' + RebeL);
+});
+}
+if (i.uses === 30) {
+message.member.addRole(message.member.guild.roles.find("name",""))
+.catch(RebeL =>{
+console.log('Error: ' + RebeL);
+});
+      }//معلومه بسيطه يمديك تكرر العمليهه أكثر من مره
+    })
+    const embed = new Discord.RichEmbed()
+ .setColor('#36393e')
+    .addField("Top Invites." ,${(possibleInvites)})
 
-  message.channel.createInvite({
-        thing: true,
-        maxUses: 2,
-        maxAge: 86400
-    }).then(invite =>
-      message.author.sendMessage(invite.url)
-    )
-  message.channel.send("تم ارسال الرابط برسالة خاصة")
-
-message.author.send("مدة الرابط : يـوم
-عدد استخدامات الرابط : 2")
-
-
+    message.channel.send(embed)
     }
 });
+
 
 client.login(process.env.BOT_TOKEN);
 
