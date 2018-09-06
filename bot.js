@@ -348,7 +348,7 @@ if(command === `فك`) {
 }); 
 
 client.on('message', msg => {
-  if (msg.content === 'discord.gg') {
+  if (msg.content === 'discord.gg/') {
    msg.delete(30)
     msg.reply('ممنوع');
   }
