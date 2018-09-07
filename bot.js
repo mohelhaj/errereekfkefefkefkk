@@ -384,27 +384,27 @@ client.on('message', msg => {
 const bannedwords = [
   "#credit",
   "#profile",
-  "#rep",
-  "#top",
-  "%level",
-  "%تقديم",
-  "-play",
-  "-stop",
-  "-p",
-  "-s",
-  "!invites",
-  "!top",
-  "G.play",
-  "G.stop",
-  "G.skip",
-  "-skip"
+  "!فواكه",
+  "!مريم",
+  "4stop",
+  "3stop",
+  "2stop",
+  "4skip",
+  "3skip",
+  "4play",
+  "3play",
+  "2play",
+  "1play",
+  "1stop",
+  "2skip",
+  "1skip"
 
 ]
 client.on('message', message => {
   var Muted = message.guild.roles.find("name", "muted");
   var warn = message.guild.roles.find("name", "warn");
   if(bannedwords.some(word => message.content.includes(word))) {
-  if(message.channel.id !== '481475376212606987') return;
+  if(message.channel.id !== '484406975661211651') return;
   if (message.author.bot) return;
   if(message.member.roles.has(warn)) return;
   if(!message.member.roles.has(warn.id)) {
